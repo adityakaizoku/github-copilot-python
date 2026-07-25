@@ -2,17 +2,50 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sudoku Game</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
-  <div class="controls">
-    <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
+  <div class="page-shell">
+    <div class="app-header">
+      <h1>Sudoku Game</h1>
+      <button id="theme-toggle" type="button" aria-pressed="false">Switch to Dark Mode</button>
+    </div>
+
+    <div class="game-layout">
+      <section class="game-panel" aria-label="Sudoku game controls and board">
+        <div id="sudoku-board" class="sudoku-board"></div>
+
+        <div class="controls hint-controls">
+          <button id="hint-button">Hint</button>
+          <span id="hint-count">Hints used: 0</span>
+          <span id="timer-display">Time: 00:00</span>
+        </div>
+
+        <div class="controls">
+          <label for="difficulty-select">Difficulty:</label>
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button id="new-game">New Game</button>
+        </div>
+
+        <div class="check-controls">
+          <button id="check-puzzle">Check Puzzle</button>
+          <span id="message"></span>
+        </div>
+      </section>
+
+      <aside class="leaderboard-section" aria-labelledby="leaderboard-title">
+        <h2 id="leaderboard-title">Leaderboard</h2>
+        <ol id="leaderboard-list"></ol>
+      </aside>
+    </div>
   </div>
+
   <script src="/static/main.js"></script>
 </body>
 </html>
